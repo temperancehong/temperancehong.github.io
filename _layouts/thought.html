@@ -1,0 +1,19 @@
+---
+layout: default
+---
+<article class="thought-single">
+  <header class="thought-header">
+    <p class="thought-date">
+      <time datetime="{{ page.date | date_to_xmlschema }}">
+        {{ page.date | date: "%B %-d, %Y" }}
+      </time>
+    </p>
+  </header>
+
+  <div class="thought-body">
+    {{ content }}
+  </div>
+
+  <hr>
+  <p><a href="{{ '/thoughts/' | relative_url }}">← Back to all thoughts</a></p>
+</article>

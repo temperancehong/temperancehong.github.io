@@ -1,0 +1,46 @@
+title: Fan Hong
+tagline: Personal site — writing, projects, and notes.
+description: >-
+  Fan Hong's personal site: professional info, blog posts, and short thoughts.
+author: Fan Hong
+url: "https://temperancehong.github.io"
+baseurl: ""
+
+# Social / contact (edit these as needed)
+email: fan.hong2024@gmail.com
+github_username: temperancehong
+github_work_username: fhong-26
+linkedin_url: "" # TODO: add your LinkedIn URL
+
+# Build
+markdown: kramdown
+highlighter: rouge
+permalink: /blog/:year/:month/:day/:title/
+
+collections:
+  thoughts:
+    output: true
+    permalink: /thoughts/:year-:month-:day-:title/
+
+defaults:
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: post
+  - scope:
+      path: ""
+      type: thoughts
+    values:
+      layout: thought
+
+# Exclude repo meta from the built site
+exclude:
+  - README.md
+  - CLAUDE.md
+  - AGENTS.md
+  - Gemfile
+  - Gemfile.lock
+  - vendor
+  - .bundle
+  - .claude
