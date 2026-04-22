@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+  {%- include head.html -%}
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <nav class="site-nav" aria-label="Primary">
+        <a class="site-title" href="{{ '/' | relative_url }}">{{ site.title }}</a>
+        <div class="nav-links">
+          {%- assign url = page.url -%}
+          <a href="{{ '/' | relative_url }}"{% if url == "/" %} aria-current="page"{% endif %}>About</a>
+          <a href="{{ '/blog/' | relative_url }}"{% if url contains "/blog" %} aria-current="page"{% endif %}>Blog</a>
+          <a href="{{ '/thoughts/' | relative_url }}"{% if url contains "/thoughts" %} aria-current="page"{% endif %}>Thoughts</a>
+          <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Toggle light/dark mode">🌓</button>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+      {{ content }}
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <span>© <span id="year"></span> {{ site.author | default: site.title }}</span>
+      <span>Built with Jekyll · Hosted on GitHub Pages</span>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      var btn = document.getElementById('theme-toggle');
+      if (btn) {
+        btn.addEventListener('click', function () {
+          var current = document.documentElement.getAttribute('data-theme');
+          var next = current === 'dark' ? 'light' : 'dark';
+          document.documentElement.setAttribute('data-theme', next);
+          try { localStorage.setItem('theme', next); } catch (e) {}
+        });
+      }
+      var yearEl = document.getElementById('year');
+      if (yearEl) yearEl.textContent = new Date().getFullYear();
+    })();
+  </script>
+</body>
+</html>

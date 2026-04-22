@@ -1,0 +1,23 @@
+# Jekyll
+_site/
+.sass-cache/
+.jekyll-cache/
+.jekyll-metadata
+
+# Ruby / Bundler (only if Jekyll is run locally)
+.bundle/
+vendor/
+Gemfile.lock
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Editors
+.vscode/
+.idea/
+*.swp
+*~
+
+# Claude Code local agent files
+.claude/

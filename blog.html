@@ -1,0 +1,29 @@
+---
+layout: default
+title: Blog
+description: Long-form writing by Fan Hong.
+permalink: /blog/
+---
+
+<h1 class="page-title">Blog</h1>
+<p class="lead">Longer-form writing. New posts show up here whenever I drop a file in <code>_posts/</code>.</p>
+
+{% if site.posts.size == 0 %}
+  <p>No posts yet — coming soon.</p>
+{% else %}
+  <ul class="post-list">
+    {% for post in site.posts %}
+      <li>
+        <a class="post-title" href="{{ post.url | relative_url }}">{{ post.title }}</a>
+        <span class="post-date">
+          <time datetime="{{ post.date | date_to_xmlschema }}">
+            {{ post.date | date: "%B %-d, %Y" }}
+          </time>
+        </span>
+        {% if post.excerpt %}
+          <p class="post-excerpt">{{ post.excerpt | strip_html | truncatewords: 30 }}</p>
+        {% endif %}
+      </li>
+    {% endfor %}
+  </ul>
+{% endif %}
